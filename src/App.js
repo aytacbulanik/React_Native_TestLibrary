@@ -4,14 +4,12 @@ import NewsCard from './components/NewsCard';
 import newsData from './news_data.json';
 
 const App = () => {
+  const renderNews = ({item}) => <NewsCard news={item} />;
+
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.large_title}> News </Text>
-      <FlatList
-        data={newsData}
-        renderItem={() => <Text> {newsData[0].author}</Text>}
-      />
-      <NewsCard />
+      <FlatList data={newsData} renderItem={renderNews} />
     </SafeAreaView>
   );
 };
