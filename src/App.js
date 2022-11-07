@@ -1,21 +1,24 @@
-import {Text, SafeAreaView, StyleSheet, Button} from 'react-native';
-import React , {useState} from 'react';
+import {Text, SafeAreaView, StyleSheet, Switch, FlatList} from 'react-native';
+import React, {useState} from 'react';
 
 const App = () => {
-  const [counter, setCounter] = useState(0);
-  
-  function increase() { 
-    setCounter(counter + 1)
-  }
+  const data = [
+    {id: 0, name: 'Muhammet', isFavorite: true},
+    {id: 1, name: 'John', isFavorite: false},
+    {id: 2, name: 'Jane', isFavorite: true},
+    {id: 3, name: 'Liam', isFavorite: false},
+    {id: 4, name: 'Noah', isFavorite: true},
+    {id: 5, name: 'Jack', isFavorite: false},
+  ];
+  const [switchOn, setSwitchOn] = useState(true);
+  const [list, setList] = useState(data);
 
-  function decrease() {
-    setCounter(counter - 1)
-  }
+  const renderItem = ({item}) => <Text> {item.name}</Text>;
   return (
     <SafeAreaView style={styles.container}>
-      <Text style={styles.large_title}>{counter}</Text>
-      <Button title='Arttır' onPress={increase} />
-      <Button title='Azalt' onPress={decrease} />
+      <Text style={styles.large_title}>Deneme List</Text>
+      <Switch value={switchOn} />
+      <FlatList data={list} renderItem={renderItem} />
     </SafeAreaView>
   );
 };
@@ -29,6 +32,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'green',
     fontSize: 30,
     fontWeight: 'bold',
+    marginBottom: 20,
   },
 });
 export default App;
