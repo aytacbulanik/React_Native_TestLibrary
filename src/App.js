@@ -14,13 +14,15 @@ const App = () => {
   const [list, setList] = useState(data);
 
   const renderItem = ({item}) => <Text> {item.name}</Text>;
+  console.log(switchOn);
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.large_title}>Deneme List</Text>
-      <Switch value={switchOn} />
+      <Switch value={switchOn} onChange={() => setSwitchOn(!switchOn)} />
       <FlatList data={list} renderItem={renderItem} />
     </SafeAreaView>
   );
+  
 };
 
 const styles = StyleSheet.create({
