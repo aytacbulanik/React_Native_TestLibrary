@@ -10,19 +10,26 @@ const App = () => {
     {id: 4, name: 'Noah', isFavorite: true},
     {id: 5, name: 'Jack', isFavorite: false},
   ];
-  const [switchOn, setSwitchOn] = useState(true);
+  const [switchOn, setSwitchOn] = useState(false);
   const [list, setList] = useState(data);
 
   const renderItem = ({item}) => <Text> {item.name}</Text>;
-  console.log(switchOn);
+  function guncelle(isfavorite) {
+    setSwitchOn(isfavorite);
+    if (isfavorite) {
+      let newArray = data.filter(item => item.isFavorite);
+      setList(newArray);
+    } else {
+      setList(data);
+    }
+  }
   return (
     <SafeAreaView style={styles.container}>
       <Text style={styles.large_title}>Deneme List</Text>
-      <Switch value={switchOn} onChange={() => setSwitchOn(!switchOn)} />
+      <Switch value={switchOn} onValueChange={guncelle} />
       <FlatList data={list} renderItem={renderItem} />
     </SafeAreaView>
   );
-  
 };
 
 const styles = StyleSheet.create({
