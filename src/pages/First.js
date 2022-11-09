@@ -2,9 +2,9 @@ import {SafeAreaView, Text, StyleSheet, Button} from 'react-native';
 import React from 'react';
 
 const First = props => {
-  console.log(props);
+  // başka sayfaya gitmeye yarayan fonksiyonu oluşturup button componenti içerisine atıyoruz
   function gotoSecondPage() {
-    props.navigation.navigate('SecondScreen');
+    props.navigation.navigate('SecondScreen', {username: 'aytaç'});
   }
   return (
     <SafeAreaView style={styles.container}>
