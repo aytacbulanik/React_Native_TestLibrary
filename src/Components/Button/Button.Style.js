@@ -8,6 +8,7 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 8,
+    width: 150,
   },
   text: {
     color: 'white',

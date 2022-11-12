@@ -10,7 +10,7 @@ const Stack = createNativeStackNavigator();
 function App() {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator screenOptions={{headerShown: false}}>
         <Stack.Screen name="welcome" component={welcome} />
         <Stack.Screen name="userSign" component={userSign} />
       </Stack.Navigator>

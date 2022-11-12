@@ -1,11 +1,13 @@
-import {View, Text} from 'react-native';
+import {SafeAreaView, Text} from 'react-native';
 import React from 'react';
+import Input from '../Components/Input';
 
 const UserSign = () => {
   return (
-    <View>
+    <SafeAreaView>
       <Text>Welcome User Sign</Text>
-    </View>
+      <Input />
+    </SafeAreaView>
   );
 };
 
