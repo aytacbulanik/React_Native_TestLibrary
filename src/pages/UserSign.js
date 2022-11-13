@@ -12,6 +12,7 @@ const UserSign = ({navigation}) => {
   function saveData() {
     if (!userName || !userSurname || !userAge || !userMail) {
       Alert.alert('Kebap Fitness App', 'Lütfen her alanı doldurunuz');
+      return;
     }
     const user = {
       userName,
