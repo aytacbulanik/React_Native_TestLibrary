@@ -23,7 +23,7 @@ const FavoriteStack = () => {
 
 const ProductStack = () => {
   return (
-    <Stack.Navigator screenOptions={null}>
+    <Stack.Navigator>
       <Stack.Screen name="ProductScreen" component={product} />
       <Stack.Screen name="ProductDetailScreen" component={productDetail} />
       <Stack.Screen name="ProductEditScreen" component={productEdit} />
@@ -33,8 +33,14 @@ const ProductStack = () => {
 function App() {
   return (
     <NavigationContainer>
-      <Tab.Navigator>
-        <Tab.Screen name="FavoriteStackScreen" component={FavoriteStack} />
+      <Tab.Navigator
+        initialRouteName="ProductStackScreen"
+        screenOptions={{headerShown: false}}>
+        <Tab.Screen
+          name="FavoriteStackScreen"
+          options={{tabBarBadge: 3}}
+          component={FavoriteStack}
+        />
         <Tab.Screen name="ProductStackScreen" component={ProductStack} />
       </Tab.Navigator>
     </NavigationContainer>
