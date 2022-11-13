@@ -1,22 +1,25 @@
-import {SafeAreaView} from 'react-native';
+import {SafeAreaView, Alert} from 'react-native';
 import React, {useState} from 'react';
 import Input from '../Components/Input';
 import Button from '../Components/Button';
 
-const UserSign = () => {
-  const [userName, setUserName] = useState('');
-  const [userSurname, setUserSurname] = useState('');
-  const [userAge, setUserAge] = useState('');
-  const [userMail, setUserMail] = useState('');
+const UserSign = ({navigation}) => {
+  const [userName, setUserName] = useState(null);
+  const [userSurname, setUserSurname] = useState(null);
+  const [userAge, setUserAge] = useState(null);
+  const [userMail, setUserMail] = useState(null);
 
   function saveData() {
+    if (!userName || !userSurname || !userAge || !userMail) {
+      Alert.alert('Kebap Fitness App', 'Lütfen her alanı doldurunuz');
+    }
     const user = {
       userName,
       userSurname,
       userAge,
       userMail,
     };
-    console.log(user);
+    navigation.navigate('resultMember', {user});
   }
   return (
     <SafeAreaView>
