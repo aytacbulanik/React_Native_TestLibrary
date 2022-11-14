@@ -1,25 +1,32 @@
-import {View, Text, FlatList} from 'react-native';
-import React, {useState} from 'react';
-import Button from '../../Components/Button';
+import {View, FlatList, ActivityIndicator} from 'react-native';
+import React, {useState, useEffect} from 'react';
 import axios from 'axios';
 import Card from '../../Components/Card/Card';
 
+const URL = 'https://jsonplaceholder.typicode.com/users';
 const Favorite = ({navigation}) => {
+  const [loading, setLoading] = useState(true);
   const [userList, setUserList] = useState([]);
-  async function request() {
-    const response = await axios.get(
-      'https://jsonplaceholder.typicode.com/users',
-    );
+
+  async function fetchData() {
+    const response = await axios.get(URL);
+    setLoading(false);
     setUserList(response.data);
   }
+
+  useEffect(() => {
+    fetchData();
+  }, []);
   return (
     <View>
-      <Text>Favorite</Text>
-      <FlatList
-        data={userList}
-        renderItem={({item}) => <Card userData={item} />}
-      />
-      <Button text="GoToEdit" onPress={request} />
+      {loading ? (
+        <ActivityIndicator size="large" />
+      ) : (
+        <FlatList
+          data={userList}
+          renderItem={({item}) => <Card userData={item} />}
+        />
+      )}
     </View>
   );
 };
