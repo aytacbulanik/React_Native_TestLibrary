@@ -5,19 +5,12 @@ import axios from 'axios';
 
 const Favorite = ({navigation}) => {
   const [cities, setCites] = useState([]);
-  function request() {
-    axios
-      .get('https://jsonplaceholder.typicode.com/users')
-      .then(object =>
-        setCites(
-          object.data.map(data => {
-            return data.address.city;
-          }),
-        ),
-      )
-      .catch(error => console.log(error));
+  async function request() {
+    const response = await axios.get(
+      'https://jsonplaceholder.typicode.com/users',
+    );
+    console.log(response);
   }
-  console.log(cities);
   return (
     <View>
       <Text>Favorite</Text>
