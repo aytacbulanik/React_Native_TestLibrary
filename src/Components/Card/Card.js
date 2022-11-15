@@ -4,10 +4,10 @@ import styles from './Card.Style';
 
 const Card = ({userData}) => {
   return (
-    <SafeAreaView>
+    <SafeAreaView style={styles.container}>
       <Text style={styles.name}>{userData.name}</Text>
-      <Text style={styles.username}>Card</Text>
-      <Text style={styles.email}>Card</Text>
+      <Text style={styles.username}>{userData.username}</Text>
+      <Text style={styles.email}>{userData.email}</Text>
     </SafeAreaView>
   );
 };
