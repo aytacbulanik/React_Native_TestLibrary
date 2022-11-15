@@ -3,19 +3,17 @@ import React from 'react';
 import styles from './ProductCard.Style';
 
 const ProductCard = ({productData}) => {
-  console.log(productData);
   return (
-    <Text>djkenkenfk</Text>
-    /*
     <View style={styles.container}>
-      <View>
-        <Image />
+      <View style={styles.image_container}>
+        <Image style={styles.image} source={{uri: productData.image}} />
       </View>
       <View>
-        <Text>{productData.id}</Text>
+        <Text>{productData.category}</Text>
+        <Text>{productData.title}</Text>
+        <Text>{productData.price} ₺</Text>
       </View>
     </View>
-    */
   );
 };
 

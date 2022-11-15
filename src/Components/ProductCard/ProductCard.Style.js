@@ -6,5 +6,14 @@ export default StyleSheet.create({
     padding: 5,
     backgroundColor: 'lightgray',
     borderRadius: 8,
+    flexDirection: 'row',
+  },
+  image_container: {
+    margin: 5,
+  },
+  image: {
+    width: 100,
+    height: 100,
+    borderRadius: 10,
   },
 });

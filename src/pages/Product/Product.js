@@ -16,20 +16,17 @@ const Product = () => {
     getProducts();
   }, []);
 
-  const ProductCardItem = ({item}) => {
-    <ProductCard productData={item} />;
-  };
+  const ProductCardItem = ({item}) => <ProductCard productData={item} />;
+
   return (
     <SafeAreaView style={styles.container}>
       <FlatList data={products} renderItem={ProductCardItem} />
-      <Text>denememe</Text>
     </SafeAreaView>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: 'red',
     margin: 5,
   },
 });
