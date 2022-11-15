@@ -1,7 +1,7 @@
-import {View, Text, FlatList} from 'react-native';
+import {SafeAreaView, FlatList, Text, StyleSheet} from 'react-native';
 import React, {useState, useEffect} from 'react';
-import styles from './Product.Style';
 import axios from 'axios';
+import ProductCard from '../../Components/ProductCard';
 
 const allProductURL = 'https://fakestoreapi.com/products';
 const Product = () => {
@@ -16,12 +16,21 @@ const Product = () => {
     getProducts();
   }, []);
 
-  const renderItem = () => {};
+  const ProductCardItem = ({item}) => {
+    <ProductCard productData={item} />;
+  };
   return (
-    <View style={styles.container}>
-      <Text>Product</Text>
-    </View>
+    <SafeAreaView style={styles.container}>
+      <FlatList data={products} renderItem={ProductCardItem} />
+      <Text>denememe</Text>
+    </SafeAreaView>
   );
 };
 
+const styles = StyleSheet.create({
+  container: {
+    backgroundColor: 'red',
+    margin: 5,
+  },
+});
 export default Product;
