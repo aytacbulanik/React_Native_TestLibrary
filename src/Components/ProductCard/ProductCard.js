@@ -5,13 +5,11 @@ import styles from './ProductCard.Style';
 const ProductCard = ({productData}) => {
   return (
     <View style={styles.container}>
-      <View style={styles.image_container}>
-        <Image style={styles.image} source={{uri: productData.image}} />
-      </View>
-      <View>
-        <Text>{productData.category}</Text>
-        <Text>{productData.title}</Text>
-        <Text>{productData.price} ₺</Text>
+      <Image style={styles.image} source={{uri: productData.image}} />
+      <View style={styles.text_container}>
+        <Text style={styles.title}>{productData.title}</Text>
+        <Text>Categori: {productData.category}</Text>
+        <Text style={styles.price}>{productData.price} ₺</Text>
       </View>
     </View>
   );
