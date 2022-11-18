@@ -1,14 +1,10 @@
 import React from 'react';
-import {
-  SafeAreaView,
-  FlatList,
-  ActivityIndicator,
-  Text,
-  StyleSheet,
-} from 'react-native';
+import {SafeAreaView, FlatList, Text, StyleSheet} from 'react-native';
 import ProductCard from '../../Components/ProductCard';
 import useFetch from '../../hooks/useFetch';
 import Config from 'react-native-config';
+import Loading from '../../Components/Loading/Loading';
+import Error from '../../Components/Error/Error';
 
 const allProductURL = Config.API_URL;
 const Product = () => {
@@ -16,17 +12,15 @@ const Product = () => {
   const ProductCardItem = ({item}) => <ProductCard productData={item} />;
 
   if (loading) {
-    return <ActivityIndicator size="large" />;
+    return <Loading />;
   }
   if (error) {
-    return <Text>{error}</Text>;
+    return <Error />;
   }
-  console.log(Config.API_URL);
+
   return (
-    
     <SafeAreaView style={styles.container}>
       <FlatList data={data} renderItem={ProductCardItem} />
-      <Text>{Config.API_UR}</Text>
     </SafeAreaView>
   );
 };
