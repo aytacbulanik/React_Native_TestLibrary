@@ -7,13 +7,19 @@ import Loading from '../../Components/Loading/Loading';
 import Error from '../../Components/Error/Error';
 
 const allProductURL = Config.API_URL;
+
 const Product = ({navigation}) => {
   const {data, loading, error} = useFetch(allProductURL);
-  function goToDetail() {
-    navigation.navigate('Detail');
-  }
+  //parametreli bir fonksiyon yazdık bunun içindeki id yi diğer sayfaya göndermek için
+  const goToDetail = id => {
+    navigation.navigate('Detail', {id}); // navigate yapısında id yi karşı sayfaya gönderiyoruz.
+  };
   const ProductCardItem = ({item}) => (
-    <ProductCard productData={item} onSelect={goToDetail} />
+    <ProductCard
+      productData={item}
+      //parametreli bir fonksiyon olarak item içerisindeki id yi gönderiyoruz.
+      onSelect={() => goToDetail(item.id)}
+    />
   );
 
   if (loading) {

@@ -11,8 +11,25 @@ function App() {
   return (
     <NavigationContainer>
       <Stack.Navigator>
-        <Stack.Screen name="Product" component={product} />
-        <Stack.Screen name="Detail" component={detail} />
+        <Stack.Screen
+          name="Product"
+          component={product}
+          options={{
+            title: 'Dükkanımız',
+            headerStyle: {backgroundColor: 'aqua'},
+            headerTitleStyle: {color: 'white'},
+          }}
+        />
+        <Stack.Screen
+          name="Detail"
+          component={detail}
+          options={{
+            title: 'Ürün Detayı',
+            headerStyle: {backgroundColor: 'aqua'},
+            headerTitleStyle: {color: 'white'},
+            headerTintColor: 'white',
+          }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
