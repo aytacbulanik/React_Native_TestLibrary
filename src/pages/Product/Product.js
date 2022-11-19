@@ -7,9 +7,14 @@ import Loading from '../../Components/Loading/Loading';
 import Error from '../../Components/Error/Error';
 
 const allProductURL = Config.API_URL;
-const Product = () => {
+const Product = ({navigation}) => {
   const {data, loading, error} = useFetch(allProductURL);
-  const ProductCardItem = ({item}) => <ProductCard productData={item} />;
+  function goToDetail() {
+    navigation.navigate('Detail');
+  }
+  const ProductCardItem = ({item}) => (
+    <ProductCard productData={item} onSelect={goToDetail} />
+  );
 
   if (loading) {
     return <Loading />;
