@@ -10,12 +10,15 @@ const HomeScreen = ({navigation}) => {
     {id: 3, name: 'womens clothing'},
   ];
 
-  const gotoProductScreen = () => {
-    navigation.navigate('ProductScreen');
+  const gotoProductScreen = id => {
+    navigation.navigate('ProductScreen', {id});
   };
 
-  const categoryRenderItem = item => (
-    <CategoryLabel category={item} onSelect={gotoProductScreen} />
+  const categoryRenderItem = ({item}) => (
+    <CategoryLabel
+      category={item}
+      onSelect={() => gotoProductScreen(item.id)}
+    />
   );
   return (
     <View>

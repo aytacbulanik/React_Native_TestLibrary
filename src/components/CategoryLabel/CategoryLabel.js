@@ -6,7 +6,7 @@ const CategoryLabel = ({category, onSelect}) => {
   return (
     <TouchableWithoutFeedback onPress={onSelect}>
       <View style={styles.container}>
-        <Text style={styles.text}>{category.item.name}</Text>
+        <Text style={styles.text}>{category.name}</Text>
       </View>
     </TouchableWithoutFeedback>
   );
