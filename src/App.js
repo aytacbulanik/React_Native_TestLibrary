@@ -4,6 +4,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import HomeScreen from './Pages/HomeScreen/HomeScreen';
 import ProductScreen from './Pages/ProductScreen/ProductScreen';
+import ProductDetailScreen from './Pages/ProductDetailScreen/ProductDetailScreen';
 const Stack = createNativeStackNavigator();
 
 const App = () => {
@@ -19,7 +20,19 @@ const App = () => {
             headerTintColor: 'white',
           }}
         />
-        <Stack.Screen name="ProductScreen" component={ProductScreen} />
+        <Stack.Screen
+          name="ProductScreen"
+          component={ProductScreen}
+          options={{
+            title: 'Products',
+            headerStyle: {backgroundColor: '#26c6da'},
+            headerTintColor: 'white',
+          }}
+        />
+        <Stack.Screen
+          name="ProductDetailScreen"
+          component={ProductDetailScreen}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

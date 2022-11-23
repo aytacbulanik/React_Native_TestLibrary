@@ -5,9 +5,14 @@ import Product from '../../components/Product/Product';
 
 import FetchData from '../../Hooks/FetchData';
 
-const ProductScreen = () => {
+const ProductScreen = ({navigation}) => {
   const {data, loading, error} = FetchData('https://fakestoreapi.com/products');
-  const renderProduct = item => <Product product={item} />;
+  function goToDetail() {
+    navigation.navigate('ProductDetailScreen');
+  }
+  const renderProduct = item => (
+    <Product product={item} onSelect={goToDetail} />
+  );
   return (
     <SafeAreaView>
       <FlatList data={data} renderItem={renderProduct} numColumns={'2'} />
