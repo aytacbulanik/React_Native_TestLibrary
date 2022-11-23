@@ -6,10 +6,10 @@ const Product = ({product, onSelect}) => {
   return (
     <TouchableWithoutFeedback onPress={onSelect}>
       <View style={styles.container}>
-        <Image style={styles.image} source={{uri: product.item.image}} />
+        <Image style={styles.image} source={{uri: product.image}} />
         <View style={styles.textContainer}>
-          <Text style={styles.title}>{product.item.title}</Text>
-          <Text style={styles.price}>{product.item.price} TL</Text>
+          <Text style={styles.title}>{product.title}</Text>
+          <Text style={styles.price}>{product.price} TL</Text>
         </View>
       </View>
     </TouchableWithoutFeedback>

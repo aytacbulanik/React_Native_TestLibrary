@@ -1,10 +1,11 @@
 import {View, Text} from 'react-native';
 import React from 'react';
 
-const ProductDetailScreen = () => {
+const ProductDetailScreen = ({route}) => {
+  console.log(route);
   return (
     <View>
-      <Text>ProductDetailScreen</Text>
+      <Text>Deneme</Text>
     </View>
   );
 };
