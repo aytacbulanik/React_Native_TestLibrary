@@ -5,12 +5,14 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import HomeScreen from './Pages/HomeScreen/HomeScreen';
 import ProductScreen from './Pages/ProductScreen/ProductScreen';
 import ProductDetailScreen from './Pages/ProductDetailScreen/ProductDetailScreen';
+import LoginScreen from './Pages/Login/Login';
 const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator>
+        <Stack.Screen name="LoginScreen" component={LoginScreen} />
         <Stack.Screen
           name="HomeScreen"
           component={HomeScreen}
