@@ -32,6 +32,7 @@ const Login = () => {
               placeholder="Lütfen Şifrenizi giriniz"
               value={values.password}
               onType={handleChange('password')}
+              secure={true}
             />
             <Button text="Kaydet" onPress={handleSubmit} />
           </View>
