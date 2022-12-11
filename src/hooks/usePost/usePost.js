@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import {useState} from 'react';
 import axios from 'axios';
 
 function usePost() {
@@ -17,4 +17,6 @@ function usePost() {
       setLoading(false);
     }
   };
+  return {data, loading, error, post};
 }
+export default usePost;
