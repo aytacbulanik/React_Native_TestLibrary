@@ -5,7 +5,7 @@ import Input from '../../components/Input';
 import Button from '../../components/Button';
 import {Formik} from 'formik';
 import usePost from '../../hooks/usePost/usePost';
-
+import AsyncStorage from '@react-native-async-storage/async-storage';
 const Login = () => {
   const {data, loading, error, post} = usePost();
   function handleLogin(values) {
@@ -17,6 +17,8 @@ const Login = () => {
   if (data) {
     if (data.status === 'Error') {
       Alert.alert('HATA', 'Kullanıcı Bulunamadı');
+    } else {
+      AsyncStorage.setItem('@user', JSON.stringify(user));
     }
     console.log(data);
   }
@@ -54,3 +56,26 @@ const Login = () => {
 };
 
 export default Login;
+
+const user = {
+  address: {
+    geolocation: {
+      lat: '-37.3159',
+      long: '81.1496',
+    },
+    city: 'kilcoole',
+    street: 'new road',
+    number: 7682,
+    zipcode: '12926-3874',
+  },
+  id: 1,
+  email: 'john@gmail.com',
+  username: 'johnd',
+  password: 'm38rmF$',
+  name: {
+    firstname: 'john',
+    lastname: 'doe',
+  },
+  phone: '1-570-236-7033',
+  __v: 0,
+};
