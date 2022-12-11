@@ -12,9 +12,12 @@ const Login = () => {
     post('https://fakestoreapi.com/auth/login', values);
   }
   if (error) {
-    Alert.alert('Kullanıcı bulunamadı.');
+    Alert.alert('HATA', 'Bir hata oluştu' + error);
   }
   if (data) {
+    if (data.status === 'Error') {
+      Alert.alert('HATA', 'Kullanıcı Bulunamadı');
+    }
     console.log(data);
   }
 
