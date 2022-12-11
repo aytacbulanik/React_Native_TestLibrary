@@ -4,9 +4,12 @@ import styles from './Button.Style';
 
 const Button = ({text, onPress, loading}) => {
   return (
-    <TouchableOpacity style={styles.container} onPress={onPress}>
+    <TouchableOpacity
+      style={styles.container}
+      onPress={onPress}
+      disabled={loading}>
       {loading ? (
-        <ActivityIndicator />
+        <ActivityIndicator color="white" />
       ) : (
         <Text style={styles.title}>{text}</Text>
       )}

@@ -14,8 +14,10 @@ const Login = () => {
   if (error) {
     Alert.alert('Kullanıcı bulunamadı.');
   }
+  if (data) {
+    console.log(data);
+  }
 
-  console.log(data);
   return (
     <SafeAreaView style={styles.container}>
       <View style={styles.logo_container}>
