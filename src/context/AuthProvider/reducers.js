@@ -1,4 +1,4 @@
-function reducers(state, action) {
+export default function reducers(state, action) {
   switch (action.type) {
     case 'SET_USER':
       const {user} = action.payload;
